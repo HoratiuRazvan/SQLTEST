@@ -1,0 +1,6 @@
+select  customerid, count(*) as number_of_orders
+from    orders
+where to_char(orders.orderDate,'YYYY') = to_char(CURRENT_TIMESTAMP,'YYYY')
+group by
+        customerid
+having  count(*) > 10;
